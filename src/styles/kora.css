@@ -1,0 +1,44 @@
+/* ============================================================
+   KORA SCREEN
+   ============================================================ */
+
+.kora-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0 16px 0;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.kora-logo {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 8px auto;
+}
+
+.kora-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.kora-title {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: #1e1e24;
+  text-align: center;
+  margin: 0 0 12px 0;
+}
+
+.kora-text {
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  color: #333333;
+  line-height: 1.7;
+  text-align: left;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 0 4px;
+}

@@ -1,0 +1,198 @@
+/* ============================================================
+   VIOLENTÓMETRO (SEMAFORO) SCREEN
+   ============================================================ */
+
+.semaforo-container {
+  padding: 10px 0 90px 0;
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.semaforo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0 16px 0;
+}
+
+.semaforo-header .header-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #80166d;
+}
+
+.semaforo-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: #80166d;
+  margin-bottom: 4px;
+}
+
+.semaforo-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: #666;
+  margin-bottom: clamp(14px, 2vh, 20px);
+  line-height: 1.5;
+}
+
+.semaforo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.semaforo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #fdf5f9;
+  padding: clamp(10px, 1.5vh, 14px) 16px;
+  border-radius: 12px;
+  border: 1px solid #f4e3f0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.semaforo-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.semaforo-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.semaforo-circle-text {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
+.semaforo-item-title {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-weight: 600;
+  color: #333;
+}
+
+.semaforo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.semaforo-modal {
+  background-color: #ffffff;
+  border-radius: 16px;
+  max-width: 440px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.semaforo-modal-header {
+  padding: 14px;
+  text-align: center;
+  border-radius: 16px 16px 0 0;
+}
+
+.semaforo-modal-header .modal-level {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  letter-spacing: 1px;
+}
+
+.semaforo-modal-body {
+  padding: clamp(20px, 4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.semaforo-modal-body .modal-title {
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin: 0;
+}
+
+.semaforo-modal-body .modal-desc {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: #555;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.semaforo-modal-body .modal-btn {
+  background-color: #80166d;
+  padding: clamp(12px, 2vh, 16px) 30px;
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.semaforo-modal-body .modal-btn:hover {
+  background-color: #6a1158;
+}
+
+.semaforo-floating-btn {
+  position: fixed;
+  bottom: clamp(16px, 3vh, 28px);
+  right: clamp(16px, 3vw, 28px);
+  width: clamp(52px, 10vw, 64px);
+  height: clamp(52px, 10vw, 64px);
+  border-radius: 50%;
+  background-color: #80166d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 4px 16px rgba(128, 22, 109, 0.4);
+  cursor: pointer;
+  z-index: 100;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.semaforo-floating-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(128, 22, 109, 0.5);
+}
+
+.semaforo-floating-btn svg {
+  width: clamp(22px, 4vw, 28px);
+  height: clamp(22px, 4vw, 28px);
+  fill: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .semaforo-modal {
+    max-width: 100%;
+    margin: 0 10px;
+  }
+}

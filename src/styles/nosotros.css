@@ -1,0 +1,170 @@
+/* ============================================================
+   NOSOTROS SCREEN
+   ============================================================ */
+
+.nosotros-container {
+  padding: 12px 0 16px 0;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nosotros-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0 16px 0;
+}
+
+.nosotros-header .header-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #80166d;
+}
+
+.nosotros-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: #80166d;
+  margin-bottom: 4px;
+}
+
+.nosotros-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: #666;
+  margin-bottom: clamp(14px, 2vh, 20px);
+  line-height: 1.5;
+}
+
+.nosotros-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nosotros-card {
+  background-color: #fdf5f9;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #f4e3f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  background: none;
+  padding: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nosotros-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.nosotros-card .card-image {
+  width: 100%;
+  height: clamp(200px, 35vh, 280px);
+  object-fit: cover;
+  display: block;
+}
+
+.nosotros-card .card-name-container {
+  padding: 14px 16px;
+  background-color: #ffffff;
+  border-top: 1px solid #f4e3f0;
+  text-align: center;
+}
+
+.nosotros-card .card-name {
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  font-weight: 700;
+  color: #333;
+}
+
+.nosotros-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0;
+}
+
+.nosotros-modal {
+  background-color: #ffffff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
+}
+
+.nosotros-modal .modal-image {
+  width: 100%;
+  height: clamp(200px, 35vh, 280px);
+  object-fit: cover;
+  display: block;
+}
+
+.nosotros-modal .modal-body {
+  padding: 20px 24px 24px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nosotros-modal .modal-body .modal-name {
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  color: #80166d;
+  text-align: center;
+  margin: 0;
+}
+
+.nosotros-modal .modal-body .modal-bio {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+  margin: 0 0 12px 0;
+}
+
+.nosotros-modal .modal-body .modal-close-btn {
+  background-color: #80166d;
+  padding: 14px 0;
+  border-radius: 12px;
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.nosotros-modal .modal-body .modal-close-btn:hover {
+  background-color: #6a1158;
+}
+
+@media (min-width: 768px) {
+  .nosotros-container {
+    max-width: 520px;
+  }
+  .nosotros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .nosotros-card .card-image {
+    height: clamp(200px, 30vh, 260px);
+  }
+}
