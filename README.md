@@ -75,7 +75,7 @@ Abra la terminal de Windows (PowerShell, CMD o terminal de VS Code) y ejecute lo
 
 ```bash
 # 1. Clonar el repositorio remoto
-git clone https://github.com/martinraszx/kora-nueva.git
+git clone https://github.com/PipeLev/Kora-app.git
 
 # 2. Acceder a la carpeta del proyecto
 cd kora-nueva
@@ -113,7 +113,7 @@ echo "fs.inotify.max_user_watches=524288" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 
 # Paso 1: Clonar el repositorio remoto desde GitHub
-git clone https://github.com/martinraszx/kora-nueva.git
+git clone https://github.com/PipeLev/Kora-app.git
 
 # Paso 2: Trasladar la ruta de la terminal a la carpeta raíz del proyecto
 cd kora-nueva
