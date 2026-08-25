@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/martinraszx/kora-nueva/blob/4c40648d0692b6f9f94d57f67bf2f32eb82ea30a/assets/logo-horizontal.png" width="400" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"/>
+  <img src="https://github.com/PipeLev/Kora-app/blob/7bcb00d9c27df1b4629f3358edf1ab3002ee3372/public/logo-horizontal.png" width="400" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"/>
 </p>
 
 # Kora 
@@ -41,7 +41,7 @@ El desarrollo se estructura en el marco de ingeniería **CDIO**:
 | :--- | :--- |
 | **Martín Aguirre** | Diseñador UI/UX & Creación de código |
 | **Ignacio Sáez** | Diseñador UI/UX & Encargado de Documentación|
-| **Felipe Levicán** | Diseñador UI/UX & Lider del Equipo |
+| **Felipe Levicán** | Diseñador UI/UX, Lider del Equipo & Creación de Codigo|
 | **Eduard Contreras** | Encargado de Documentación|
 
 ---
