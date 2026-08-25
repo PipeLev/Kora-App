@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaRedo, FaHome, FaBars } from 'react-icons/fa';
 import { useDrawer } from '../App';
+import { obtenerNivel } from './SemaforoScreen';
 
 const ResultadosScreen = () => {
   const location = useLocation();
@@ -24,8 +25,14 @@ const ResultadosScreen = () => {
       }
     }
 
-    if (data && data.puntaje !== undefined) {
-      setResultado(data);
+    if (data && data.nivel !== undefined) {
+      const nivelData = obtenerNivel(data.nivel);
+      setResultado({
+        ...data,
+        titulo: nivelData ? nivelData.titulo : 'Nivel no encontrado',
+        color: nivelData ? nivelData.color : '#000000',
+        descripcion: nivelData ? nivelData.descripcion : ''
+      });
     } else {
       setResultado(null);
     }
@@ -34,6 +41,7 @@ const ResultadosScreen = () => {
 
   const goToHome = () => navigate('/');
   const goToCuestionario = () => navigate('/cuestionario');
+  const goToSemaforo = () => navigate('/semaforo');
   const repetirCuestionario = () => {
     localStorage.removeItem('ultimoResultado');
     navigate('/cuestionario');
@@ -76,29 +84,7 @@ const ResultadosScreen = () => {
     );
   }
 
-  const {
-    puntaje,
-    totalPreguntas,
-    maxPuntaje,
-    porcentaje,
-    nombre,
-    zona,
-    color,
-    colorFondo,
-    descripcion,
-    conductas = [],
-    riesgo,
-    recomendaciones = [],
-    timestamp,
-    id // nivel id (verde, amarillo, etc.)
-  } = resultado;
-
-  // Número del nivel (1-4 según el orden en los niveles)
-  const nivelNumero = (() => {
-    const niveles = ['verde', 'amarillo', 'naranja', 'rojo'];
-    const idx = niveles.indexOf(id);
-    return idx !== -1 ? idx + 1 : 0;
-  })();
+  const { nivel, color, titulo, puntaje, porcentaje } = resultado;
 
   return (
     <div className="resultados-container">
@@ -110,56 +96,26 @@ const ResultadosScreen = () => {
       </header>
 
       <div className="resultados-info">
-        <p>
-          Este resultado se basa en los niveles del Violentómetro.
-          El puntaje obtenido determina en qué zona se encuentra tu relación.
-        </p>
+        <p>El resultado del cuestionario indica que te encuentras en el siguiente nivel del Violentómetro:</p>
       </div>
 
-      <div
-        className="resultado-principal"
-        style={{
-          borderLeftColor: color,
-          backgroundColor: colorFondo || '#ffffff'
-        }}
-      >
-        <div className="resultado-header">
-          <span className="resultado-label" style={{ color }}>{zona}</span>
-          <span className="resultado-nivel" style={{ color }}>{nombre}</span>
+      <div className="resultado-nivel-principal" style={{ borderColor: color }}>
+        <div className="nivel-grande" style={{ color: color }}>
+          Nivel {nivel}
         </div>
-        <div className="resultado-puntaje">
-          <span>Puntaje: {puntaje} / {maxPuntaje}</span>
+        <div className="nivel-titulo" style={{ color: color }}>
+          {titulo}
+        </div>
+        <div className="nivel-detalle">
+          <span>Puntaje: {puntaje} / 270</span>
           <span>Porcentaje: {porcentaje}%</span>
-        </div>
-        <div className="resultado-riesgo" style={{ color }}>
-          <strong>Riesgo: {riesgo}</strong>
-        </div>
-        <p className="resultado-desc">{descripcion}</p>
-
-        {conductas.length > 0 && (
-          <div className="resultado-recomendaciones">
-            <h4>Conductas asociadas:</h4>
-            <ul>
-              {conductas.map((c, i) => <li key={i}>• {c}</li>)}
-            </ul>
-          </div>
-        )}
-
-        {recomendaciones.length > 0 && (
-          <div className="resultado-recomendaciones">
-            <h4>Recomendaciones:</h4>
-            <ul>
-              {recomendaciones.map((rec, i) => <li key={i}>• {rec}</li>)}
-            </ul>
-          </div>
-        )}
-
-        <div className="resultado-fecha">
-          {timestamp ? new Date(timestamp).toLocaleDateString('es-CL') + ' a las ' + new Date(timestamp).toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' }) : 'Fecha no disponible'}
         </div>
       </div>
 
       <div className="resultado-actions">
+        <button className="btn-secondary" onClick={goToSemaforo}>
+          Ver Violentómetro
+        </button>
         <button className="btn-secondary" onClick={repetirCuestionario}>
           <FaRedo /> Repetir cuestionario
         </button>
