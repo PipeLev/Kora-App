@@ -41,7 +41,7 @@ El desarrollo se estructura en el marco de ingeniería **CDIO**:
 | :--- | :--- |
 | **Martín Aguirre** | Diseñador UI/UX & Creación de código |
 | **Ignacio Sáez** | Diseñador UI/UX & Encargado de Documentación|
-| **Felipe Levicán** | Diseñador UI/UX, Lider del Equipo & Creación de Codigo|
+| **Felipe Levicán** | Diseñador UI/UX, Líder del Equipo & Creación de Codigo|
 | **Eduard Contreras** | Encargado de Documentación|
 
 ---
