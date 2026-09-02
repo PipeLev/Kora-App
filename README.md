@@ -127,7 +127,6 @@ npm start
 ```
 ---
 
-https://canva.link/hi4h41l5wzuvfdz
 ## Vistazo de la Aplicación
 
 <p align="center">
