@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaEnvelope, FaCopy, FaCheck } from 'react-icons/fa';
 import { useDrawer } from '../App';
 
 const EQUIPO = [
@@ -29,12 +29,39 @@ const EQUIPO = [
   },
 ];
 
+const CORREO_CONTACTO = 'felipelevican03@gmail.com';
+
+// URL oficial de Gmail Compose (abre la ventana de redacción en una pestaña nueva)
+const GMAIL_COMPOSE_URL =
+  'https://mail.google.com/mail/?view=cm&fs=1&to=felipelevican03%40gmail.com&su=Reporte%20de%20error%20-%20Kora';
+
 const NosotrosScreen = () => {
   const { toggleDrawer } = useDrawer();
   const [selected, setSelected] = useState(null);
+  const [copiado, setCopiado] = useState(false);
 
   const openModal = (miembro) => setSelected(miembro);
   const closeModal = () => setSelected(null);
+
+  const copiarCorreo = async () => {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(CORREO_CONTACTO);
+      } else {
+        // Fallback para navegadores sin Clipboard API
+        const inputTemporal = document.createElement('input');
+        inputTemporal.value = CORREO_CONTACTO;
+        document.body.appendChild(inputTemporal);
+        inputTemporal.select();
+        document.execCommand('copy');
+        document.body.removeChild(inputTemporal);
+      }
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2000);
+    } catch (err) {
+      // Silencioso: si no se puede copiar, no se rompe la UI
+    }
+  };
 
   return (
     <div className="nosotros-container">
@@ -46,7 +73,9 @@ const NosotrosScreen = () => {
       </header>
 
       <h1 className="nosotros-title">Nuestro Equipo</h1>
-      <p className="nosotros-subtitle">Conoce a las personas detrás del desarrollo y creación de Kora. Toca una foto para leer su historia.</p>
+      <p className="nosotros-subtitle">
+        Conoce a las personas detrás del desarrollo y creación de Kora. Toca una foto para leer su historia.
+      </p>
 
       <div className="nosotros-grid">
         {EQUIPO.map((m) => (
@@ -58,6 +87,51 @@ const NosotrosScreen = () => {
           </button>
         ))}
       </div>
+
+      {/* ============================================================
+          SECCIÓN: ¿ENCONTRASTE UN ERROR?
+          ============================================================ */}
+      <section className="nosotros-reporte-error">
+        <h2 className="reporte-error-titulo">¿Encontraste un error?</h2>
+        <p className="reporte-error-texto">
+          Si encuentras un error, una función que no funciona correctamente o algún problema en Kora,
+          puedes comunicarte con nosotros por correo electrónico. Revisaremos el reporte para poder solucionarlo.
+        </p>
+
+        <div className="reporte-error-correo">
+          <FaEnvelope className="reporte-error-icono" size={18} color="#80166d" />
+          <span className="reporte-error-email">{CORREO_CONTACTO}</span>
+          <button
+            className="btn-copiar-correo"
+            onClick={copiarCorreo}
+            title="Copiar correo"
+            aria-label="Copiar correo electrónico"
+          >
+            {copiado ? (
+              <>
+                <FaCheck size={14} color="#4CAF50" />
+                <span>Copiado</span>
+              </>
+            ) : (
+              <>
+                <FaCopy size={14} color="#80166d" />
+                <span>Copiar</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* Botón que abre Gmail Compose en una pestaña nueva */}
+        <a
+          href={GMAIL_COMPOSE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-enviar-correo"
+        >
+          <FaEnvelope size={16} />
+          Enviar un correo
+        </a>
+      </section>
 
       {selected && (
         <div className="nosotros-modal-overlay" onClick={closeModal}>
