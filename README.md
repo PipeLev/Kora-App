@@ -126,6 +126,7 @@ npm start
 
 ```
 ---
+
 ## Vistazo de la Aplicación
 
 <p align="center">
