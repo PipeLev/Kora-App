@@ -4,6 +4,14 @@
 
 # Kora 
 
+<p>
+  <img src="https://img.shields.io/badge/build-active-7E328F?style=for-the-badge" alt="Build">
+  <img src="https://img.shields.io/badge/Version-1.1.0-FF000F?style=for-the-badge" alt="Version">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JSX-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="react">
+</p>
+
 ### **Proyecto Integrador | Ingeniería Civil en Informática**
 **Universidad de Los Lagos — Sede Chiloé, Castro**
 
